@@ -1,7 +1,11 @@
-const TodoItem = () => {
-    return (
-        <h4>Item</h4>
-    )
-}
+const TodoItem = (props) => {
+  return (
+    // <h4>{props.text}</h4>
+    <div>
+      <p>{props.text}</p>
+      <button>Delete</button>
+    </div>
+  );
+};
 
-export default TodoItem
+export default TodoItem;

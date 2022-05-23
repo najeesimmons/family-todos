@@ -1,13 +1,25 @@
+import { useState } from "react";
 import Button from "../UI/Button";
 
-const TodoInput = () => {
+const TodoInput = (props) => {
+
+  const [enteredValue, setEnteredValue] = useState("")
+
+  const handleInputChange = (event) => {
+      setEnteredValue(event.target.value)
+      console.log(enteredValue)
+  }
+  const handleFormSubmit = event => {
+      event.preventDefault()
+      props.onAddTodos(enteredValue)
+  }
   return (
     <div>
       <h2>New Task</h2>
-      <form>
-          <input></input>
+      <form onSubmit={handleFormSubmit}>
+          <input onChange={handleInputChange}></input>
+          <Button />
       </form>
-      <Button />
     </div>
   );
 };

@@ -3,24 +3,25 @@ import TodoInput from "./components/TodoInput";
 import TodoDisplay from "./components/TodoDisplay";
 import { useState } from "react";
 
-const DUMMY_DATA = [
-  { todo: "clean your room", time: new Date() },
-  { todo: "walk the dog", time: new Date() },
-];
+const DUMMY_DATA = [{id: 1, text: "clean your room" }, { id: 2, text: "walk the dog" }];
 
 function App() {
   const [todos, setTodos] = useState(DUMMY_DATA);
 
-  const handleAddTodo = (newTodo) => {
+  const handleAddTodos = (enteredText) => {
     setTodos(prevTodos => {
-      return [...prevTodos, newTodo]
-    })
-  }
+      const updatedTodos = [...prevTodos];
+      updatedTodos.unshift({ id: Math.random().toString(), text: enteredText,  });
+      return updatedTodos;
+    });
+
+    console.log(todos);
+  };
 
   return (
     <div className="App">
       <h1>Family Todos</h1>
-      <TodoInput onAddTodo={handleAddTodo} />
+      <TodoInput onAddTodos={handleAddTodos} />
       <TodoDisplay todos={todos} />
     </div>
   );
