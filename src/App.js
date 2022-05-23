@@ -1,7 +1,7 @@
 import "./App.css";
 import TodoInput from "./components/TodoInput";
-import TodoDisplay from "./components/ToDoDisplay";
-import useState from "react";
+import TodoDisplay from "./components/TodoDisplay";
+import { useState } from "react";
 
 const DUMMY_DATA = [
   { todo: "clean your room", time: new Date() },
@@ -11,10 +11,16 @@ const DUMMY_DATA = [
 function App() {
   const [todos, setTodos] = useState(DUMMY_DATA);
 
+  const handleAddTodo = (newTodo) => {
+    setTodos(prevTodos => {
+      return [...prevTodos, newTodo]
+    })
+  }
+
   return (
     <div className="App">
       <h1>Family Todos</h1>
-      <TodoInput />
+      <TodoInput onAddTodo={handleAddTodo} />
       <TodoDisplay todos={todos} />
     </div>
   );
