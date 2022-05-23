@@ -1,7 +1,7 @@
 const TodoDisplay = () => {
     return (
         <div>
-            <h2>Current Todos</h2>
+            <h3>Current Todos</h3>
         </div>
     )
 }
