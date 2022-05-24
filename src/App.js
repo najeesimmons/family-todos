@@ -14,8 +14,6 @@ function App() {
       updatedTodos.unshift({ id: Math.random().toString(), text: enteredText,  });
       return updatedTodos;
     });
-
-    console.log(todos);
   };
 
   return (
