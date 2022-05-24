@@ -12,12 +12,13 @@ const TodoInput = (props) => {
   const handleFormSubmit = event => {
       event.preventDefault()
       props.onAddTodos(enteredValue)
+      setEnteredValue('')
   }
   return (
     <div>
       <h2>New Task</h2>
       <form onSubmit={handleFormSubmit}>
-          <input onChange={handleInputChange}></input>
+          <input onChange={handleInputChange} value={enteredValue}></input>
           <Button />
       </form>
     </div>
