@@ -1,5 +1,4 @@
-.item-container {
-    /* display: inline-block; */
-    color: red;
-    border: 5px red;
+.title {
+    display: inline-block;
+    margin-right: 10px;
 }

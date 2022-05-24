@@ -14,8 +14,8 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      <div className={styles['itemcontainer']}>
-        <p>{props.text}</p>
+      <div className={styles.itemcontainer}>
+        <p className={styles.title}>{props.text}</p>
         <input
           type="checkbox"
           checked={isChecked}
