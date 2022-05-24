@@ -1,9 +1,8 @@
 const TodoItem = (props) => {
   return (
-    // <h4>{props.text}</h4>
     <div>
       <p>{props.text}</p>
-      <button>Delete</button>
+      <input type="checkbox"></input>
     </div>
   );
 };
