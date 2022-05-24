@@ -18,7 +18,7 @@ const TodoInput = (props) => {
     <div>
       <h2>New Task</h2>
       <form onSubmit={handleFormSubmit}>
-          <input onChange={handleInputChange} value={enteredValue}></input>
+          <input onChange={handleInputChange} ></input>
           <Button />
       </form>
     </div>
