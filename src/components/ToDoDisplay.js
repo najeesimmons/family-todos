@@ -8,11 +8,10 @@ const TodoDisplay = (props) => {
     <div>
       <Card>
         <h3>Current Todos</h3>
-        <ul>
-          {props.todos.map((item) => (
-            <TodoItem key={item.id} id={item.id} text={item.text} />
-          ))}
-        </ul>
+
+        {props.todos.map((item) => (
+          <TodoItem key={item.id} id={item.id} text={item.text} />
+        ))}
       </Card>
     </div>
   );

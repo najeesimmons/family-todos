@@ -1,4 +1,30 @@
-.title {
-    display: inline-block;
-    margin-right: 10px;
+.item-container {
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+ 
+}
+
+.item-container svg {
+    width: 25px;
+    height: 25px;
+}
+
+.green-icon svg{
+    fill: green;
+}
+
+.red-icon svg{
+    fill: red;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

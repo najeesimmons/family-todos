@@ -1,32 +1,33 @@
 import { useEffect, useState } from "react";
-import styles from './TodoItem.module.css';
-import { AiFillCheckCircle } from 'react-icons/ai'
-import { AiFillCloseCircle} from 'react-icons/ai'
+import styles from "./TodoItem.module.css";
+import CheckButton from "../UI/CheckButton";
+
 
 const TodoItem = (props) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
 
-  useEffect(() => { 
-    console.log(`${isChecked}`);
-  }, [isChecked]);
+  useEffect(() => {
+    console.log(`${isComplete}`);
+  }, [isComplete]);
 
-  const handleOnChange = () => {
-    setIsChecked(!isChecked);
+  const handleStatusChange = () => {
+    setIsComplete(!isComplete);
   };
 
   return (
     <div>
-      <div className={styles.itemcontainer}>
-        <p className={styles.title}>{props.text}</p>
-        <AiFillCheckCircle />
-        <AiFillCloseCircle />
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleOnChange}
-        ></input>
+      <div className={styles["item-container"]}>
+        <div>
+          <p className={styles.text}>{props.text}</p>
+        </div>
+        <div className={styles.icons}> 
+          <CheckButton green icon='check' handleStatusChange={handleStatusChange} />
+          <CheckButton green={false} icon='close' />
+          {/* {RenderCircle({className:styles['green-icon']})} */}
+          {/* <AiFillCheckCircle onClick={handleOnChange} />
+          <AiFillCloseCircle /> */}
+        </div>
       </div>
-      <h5>Test:Above checkbox is {isChecked ? "checked" : "un-checked"}.</h5>
     </div>
   );
 };
