@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from './TodoItem.module.css';
+import { AiFillCheckCircle } from 'react-icons/ai'
+import { AiFillCloseCircle} from 'react-icons/ai'
 
 const TodoItem = (props) => {
   const [isChecked, setIsChecked] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { 
     console.log(`${isChecked}`);
   }, [isChecked]);
 
@@ -16,6 +18,8 @@ const TodoItem = (props) => {
     <div>
       <div className={styles.itemcontainer}>
         <p className={styles.title}>{props.text}</p>
+        <AiFillCheckCircle />
+        <AiFillCloseCircle />
         <input
           type="checkbox"
           checked={isChecked}
