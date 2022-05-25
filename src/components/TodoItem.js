@@ -22,7 +22,7 @@ const TodoItem = (props) => {
         </div>
         <div className={styles.icons}> 
           <StatusChangeButton green icon='check' handleStatusChange={handleStatusChange} />
-          <StatusChangeButton green={false} icon='close' />
+          <StatusChangeButton green={false} icon='close' id={props.id} onDeleteTodos={props.onDeleteTodos} />
           {/* {RenderCircle({className:styles['green-icon']})} */}
           {/* <AiFillCheckCircle onClick={handleOnChange} />
           <AiFillCloseCircle /> */}

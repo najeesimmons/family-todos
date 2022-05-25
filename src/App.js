@@ -16,11 +16,18 @@ function App() {
     });
   };
 
+  const handleRemoveTodos = (todoId) => {
+    setTodos(prevTodos => {
+    const updatedTodos = prevTodos.filter(todo => todo.id !== todoId);
+    return updatedTodos
+    })
+  }
+
   return (
     <div className="App">
       <h1>Family Todos</h1>
       <TodoInput onAddTodos={handleAddTodos} />
-      <TodoDisplay todos={todos} />
+      <TodoDisplay todos={todos} onDeleteTodos={handleRemoveTodos} />
     </div>
   );
 }
