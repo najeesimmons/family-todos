@@ -18,7 +18,7 @@ const TodoItem = (props) => {
     <div>
       <div className={styles["item-container"]}>
         <div>
-          <p className={styles.text}>{props.text}</p>
+          <p className={`${styles.text} ${isComplete && styles.complete}`}>{props.text}</p>
         </div>
         <div className={styles.icons}> 
           <StatusChangeButton green icon='check' handleStatusChange={handleStatusChange} />
