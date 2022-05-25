@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./TodoItem.module.css";
-import CheckButton from "../UI/CheckButton";
+import StatusChangeButton from "../UI/StatusChangeButton";
 
 
 const TodoItem = (props) => {
@@ -21,8 +21,8 @@ const TodoItem = (props) => {
           <p className={styles.text}>{props.text}</p>
         </div>
         <div className={styles.icons}> 
-          <CheckButton green icon='check' handleStatusChange={handleStatusChange} />
-          <CheckButton green={false} icon='close' />
+          <StatusChangeButton green icon='check' handleStatusChange={handleStatusChange} />
+          <StatusChangeButton green={false} icon='close' />
           {/* {RenderCircle({className:styles['green-icon']})} */}
           {/* <AiFillCheckCircle onClick={handleOnChange} />
           <AiFillCloseCircle /> */}

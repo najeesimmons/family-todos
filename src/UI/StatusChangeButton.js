@@ -2,7 +2,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { AiFillCloseCircle } from "react-icons/ai";
 import styles from "../components/TodoItem.module.css";
 
-const CheckButton = (props) => {
+const StatusChangeButton = (props) => {
   const isCheck = props.icon === 'check'
   const isClose = props.icon === 'close'
     let className = props.green ? styles["green-icon"] : styles["red-icon"];
@@ -14,4 +14,4 @@ const CheckButton = (props) => {
   );
 };
 
-export default CheckButton;
+export default StatusChangeButton;
