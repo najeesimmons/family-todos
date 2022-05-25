@@ -23,11 +23,19 @@ function App() {
     })
   }
 
+  let todoList = <p>There are no tasks to display.</p>
+
+  if (todos.length > 0) {
+    todoList = (
+      <TodoDisplay todos={todos} onDeleteTodos={handleRemoveTodos} />
+    );
+  }
+  
   return (
     <div className="App">
       <h1>Family Todos</h1>
       <TodoInput onAddTodos={handleAddTodos} />
-      <TodoDisplay todos={todos} onDeleteTodos={handleRemoveTodos} />
+      {todoList}
     </div>
   );
 }
