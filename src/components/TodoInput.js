@@ -1,26 +1,28 @@
 import { useState } from "react";
 import Button from "../UI/Button";
+import Card from "./Card/Card";
 
 const TodoInput = (props) => {
-
-  const [enteredValue, setEnteredValue] = useState("")
+  const [enteredValue, setEnteredValue] = useState("");
 
   const handleInputChange = (event) => {
-      setEnteredValue(event.target.value)
-      console.log(enteredValue)
-  }
-  const handleFormSubmit = event => {
-      event.preventDefault()
-      props.onAddTodos(enteredValue)
-      setEnteredValue('')
-  }
+    setEnteredValue(event.target.value);
+    console.log(enteredValue);
+  };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    props.onAddTodos(enteredValue);
+    setEnteredValue("");
+  };
   return (
     <div>
-      <h2>New Task</h2>
-      <form onSubmit={handleFormSubmit}>
-          <input onChange={handleInputChange} ></input>
+      <Card>
+        <h2>New Task</h2>
+        <form onSubmit={handleFormSubmit}>
+          <input onChange={handleInputChange} value={enteredValue}></input>
           <Button />
-      </form>
+        </form>
+      </Card>
     </div>
   );
 };
