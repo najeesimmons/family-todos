@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../UI/Button";
 import Card from "./Card/Card";
 
+
 const TodoInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
 
@@ -17,10 +18,10 @@ const TodoInput = (props) => {
   return (
     <div>
       <Card>
-        <h2>New Task</h2>
+        <h2>Add New Task</h2>
         <form onSubmit={handleFormSubmit}>
           <input onChange={handleInputChange} value={enteredValue}></input>
-          <Button />
+          <Button/>
         </form>
       </Card>
     </div>
