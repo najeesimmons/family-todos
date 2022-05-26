@@ -1,21 +1,20 @@
 import TodoItem from "./TodoItem";
-import Card from "./Card/Card";
+import "./TodoDisplay.css";
 
 const TodoDisplay = (props) => {
   return (
-    <div>
-      <Card>
-        <h3>Current Todos</h3>
-        {props.todos.map((item) => (
-          <TodoItem
-            key={item.id}
-            id={item.id}
-            text={item.text}
-            onDeleteTodos={props.onDeleteTodos}
-          />
-        ))}
-      </Card>
-    </div>
+    <ul className="todo-list">
+      {props.todos.map((item) => (
+        <TodoItem
+          key={item.id}
+          id={item.id}
+          text={item.text}
+          onDeleteTodos={props.onDeleteTodos}
+        >
+          
+        </TodoItem>
+      ))}
+    </ul>
   );
 };
 
