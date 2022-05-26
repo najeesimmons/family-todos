@@ -1,12 +1,14 @@
 // import { icons } from "react-icons"
-// import AiFillPlusCircle from 'react-icons/ai'
+import { AiFillPlusCircle } from 'react-icons/ai'
+import styles from "./Button.module.css"
 
-const Button = () => {
+const Button = props => {
     return (
-        <div>
-        <button type="submit">Add</button>
-        </div>
-    )
-}
-
-export default Button
+      <button type={props.type} className={styles.button} onClick={props.onClick}>
+        {props.children}
+      </button>
+    );
+  };
+  
+  export default Button;
+  

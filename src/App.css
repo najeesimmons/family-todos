@@ -3,6 +3,9 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
+p {
+  text-align: center;
+}
 #todos {
   width: 35rem;
   max-width: 90%;
