@@ -1,6 +1,6 @@
 import { AiFillCheckCircle } from "react-icons/ai";
 import { AiFillCloseCircle } from "react-icons/ai";
-import styles from "../components/TodoItem.module.css";
+import styles from "../components/TodoItem/TodoItem.module.css";
 
 const StatusChangeButton = (props) => {
   const isCheck = props.icon === "check";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./TodoItem.module.css";
-import StatusChangeButton from "../UI/StatusChangeButton";
+import StatusChangeButton from "../../UI/StatusChangeButton";
 
 
 const TodoItem = (props) => {

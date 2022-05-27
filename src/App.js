@@ -1,6 +1,6 @@
 import "./App.css";
-import TodoInput from "./components/TodoInput";
-import TodoDisplay from "./components/TodoDisplay";
+import TodoInput from "./components/TodoInput/TodoInput";
+import TodoDisplay from "./components/TodoDisplay/TodoDisplay";
 import { useState } from "react";
 
 const DUMMY_DATA = [

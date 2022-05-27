@@ -1,4 +1,4 @@
-import TodoItem from "./TodoItem";
+import TodoItem from "../TodoItem/TodoItem";
 import "./TodoDisplay.css";
 
 const TodoDisplay = (props) => {
@@ -10,9 +10,7 @@ const TodoDisplay = (props) => {
           id={item.id}
           text={item.text}
           onDeleteTodos={props.onDeleteTodos}
-        >
-          
-        </TodoItem>
+        ></TodoItem>
       ))}
     </ul>
   );
