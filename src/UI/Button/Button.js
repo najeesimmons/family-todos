@@ -1,5 +1,3 @@
-// import { icons } from "react-icons"
-import { AiFillPlusCircle } from 'react-icons/ai'
 import styles from "./Button.module.css"
 
 const Button = props => {

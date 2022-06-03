@@ -7,6 +7,10 @@ const StatusChangeButton = (props) => {
   const isClose = props.icon === "close";
   let className = props.green ? styles["green-icon"] : styles["red-icon"];
 
+  const confirmDelete = () => {
+    props.confirmDelete()
+  }
+
   const deleteHandler = () => {
     props.onDeleteTodos(props.id);
   }
@@ -14,7 +18,7 @@ const StatusChangeButton = (props) => {
   return (
     <div className={className}>
       {isCheck && <AiFillCheckCircle onClick={props.handleStatusChange} />}
-      {isClose && <AiFillCloseCircle onClick={deleteHandler}/>}
+      {isClose && <AiFillCloseCircle onClick={confirmDelete}  />}
     </div>
   );
 };
