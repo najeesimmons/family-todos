@@ -1,12 +1,17 @@
 import styles from "./Button.module.css"
 
 const Button = props => {
-    return (
-      <button type={props.type} className={styles.button} onClick={props.onClick}>
+
+  let className = props.green ? styles["green-button"] : styles["red-button"];
+
+
+  return (
+      <button type={props.type || 'button'} className={className} onClick={props.onClick}>
         {props.children}
       </button>
     );
   };
-  
+
+
   export default Button;
-  
+   

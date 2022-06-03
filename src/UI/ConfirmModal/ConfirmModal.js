@@ -1,13 +1,15 @@
 import style from "./ConfirmModal.module.css";
 import Card from "../Card/Card";
+import Button from "../Button/Button";
 
 const ConfirmModal = (props) => {
   const finalDelete = () => {
     props.onDeleteTodos(props.id);
   };
+
   return (
     <div>
-      <div className={style.backdrop} onClick={props.confirmDelete}>
+      <div className={style.backdrop}>
         <Card className={style.modal}>
           <header className={style.header}>
             <h2>Confirm Deletion</h2>
@@ -16,10 +18,12 @@ const ConfirmModal = (props) => {
             Are you sure you want to delete this item?
           </div>
           <footer className={style.actions}>
-            <button onClick={finalDelete} id={props.id}>
+            <Button onClick={finalDelete} id={props.id} green={false}>
               Yes
-            </button>
-            <button onClick={props.confirmDelete}>No</button>
+            </Button>
+            <Button onClick={props.confirmDelete} green>
+              No
+            </Button>
           </footer>
         </Card>
       </div>
