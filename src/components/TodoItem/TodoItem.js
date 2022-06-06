@@ -2,7 +2,6 @@ import { useState } from "react";
 import ConfirmModal from "../../UI/ConfirmModal/ConfirmModal";
 import styles from "./TodoItem.module.css";
 import StatusChangeButton from "../../UI/StatusChangeButton";
-import ReactDOM from "react-dom";
 
 const TodoItem = (props) => {
   const [isComplete, setIsComplete] = useState(false);
@@ -14,8 +13,10 @@ const TodoItem = (props) => {
 
   const confirmDelete = () => {
     setConfirming((prevStatus) => !prevStatus);
-    // console.log(confirming)
+    console.log(confirming)
   };
+
+
   return (
     <div>
       {confirming && (
@@ -23,6 +24,7 @@ const TodoItem = (props) => {
           onDeleteTodos={props.onDeleteTodos}
           id={props.id}
           confirmDelete={confirmDelete}
+          
         />
       )}
       <div className={styles["item-container"]}>
