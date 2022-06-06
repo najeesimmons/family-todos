@@ -18,7 +18,7 @@ const ConfirmModal = (props) => {
             Are you sure you want to delete this item?
           </div>
           <footer className={style.actions}>
-            <Button onClick={finalDelete} id={props.id} green={false}>
+            <Button onClick={finalDelete} id={props.id} red>
               Yes
             </Button>
             <Button onClick={props.confirmDelete} green>
