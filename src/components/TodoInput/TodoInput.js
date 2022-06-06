@@ -9,21 +9,23 @@ const TodoInput = (props) => {
 
   const checkIfValid = () => {
     if (todoInputField.current.value.trim().length > 0) {
-      setisValid(true)
-      console.log(isValid)
-    } else {
-      setisValid(false)
+      setisValid(true);
+      // } else {
+      //   setisValid(false)
+      // }
+      // if the above else condition is added in, then invaid class for the input
+      // field will be activated even when you backspace until field has no content
     }
-  }
-  
+  };
+
   const handleFormSubmit = (event) => {
-    const enteredTodo = todoInputField.current.value
+    const enteredTodo = todoInputField.current.value;
     event.preventDefault();
     if (enteredTodo.trim().length === 0) {
       setisValid(false);
       return;
     }
-    setisValid(true)
+    setisValid(true);
     props.onAddTodos(enteredTodo);
     todoInputField.current.value = "";
   };
