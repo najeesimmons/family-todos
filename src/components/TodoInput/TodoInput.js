@@ -1,34 +1,35 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "../../UI/Button/Button";
 import styles from "./TodoInput.module.css";
 
 const TodoInput = (props) => {
-  const [enteredValue, setEnteredValue] = useState("");
+  const todoInputField = useRef();
+
   const [isValid, setisValid] = useState(true);
 
-  const handleInputChange = (event) => {
-    if (event.target.value.trim().length > 0) {
-      setisValid(true);
-    }
-    setEnteredValue(event.target.value);
-  };
-
   const handleFormSubmit = (event) => {
+    const enteredTodo = todoInputField.current.value;
     event.preventDefault();
-    if (enteredValue.trim().length === 0) {
+    if (enteredTodo.trim().length === 0) {
       setisValid(false);
       return;
     }
-    props.onAddTodos(enteredValue);
-    setEnteredValue("");
+    setisValid(true)
+    props.onAddTodos(enteredTodo);
+    todoInputField.current.value = "";
   };
+
   return (
     <form onSubmit={handleFormSubmit}>
-      <div className={`${styles["form-control"]} ${!isValid && styles.invalid}`}>
+      <div
+        className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
+      >
         <label>New Task</label>
-        <input onChange={handleInputChange} value={enteredValue}></input>
+        <input id="todo" ref={todoInputField}></input>
       </div>
-      <Button type="submit" green>Add</Button>
+      <Button type="submit" green>
+        Add
+      </Button>
     </form>
   );
 };
