@@ -13,7 +13,6 @@ const TodoItem = (props) => {
 
   const confirmDelete = () => {
     setConfirming((prevStatus) => !prevStatus);
-    console.log(confirming)
   };
 
 
