@@ -7,6 +7,13 @@ const TodoInput = (props) => {
 
   const [isValid, setisValid] = useState(true);
 
+  const checkIfValid = () => {
+    if (todoInputField.current.value.trim() === 0) {
+      setisValid(false)
+    } else {
+      setisValid(true)
+    }
+  }
   const handleFormSubmit = (event) => {
     const enteredTodo = todoInputField.current.value;
     event.preventDefault();
@@ -25,7 +32,7 @@ const TodoInput = (props) => {
         className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
       >
         <label>New Task</label>
-        <input id="todo" ref={todoInputField}></input>
+        <input id="todo" ref={todoInputField} onChange={checkIfValid}></input>
       </div>
       <Button type="submit" green>
         Add
