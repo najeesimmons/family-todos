@@ -21,7 +21,7 @@ const ConfirmModal = (props) => {
             <Button onClick={finalDelete} id={props.id} red>
               Yes
             </Button>
-            <Button onClick={props.confirmDelete} green>
+            <Button className={style['left-bumper']} onClick={props.confirmDelete} green >
               No
             </Button>
           </footer>

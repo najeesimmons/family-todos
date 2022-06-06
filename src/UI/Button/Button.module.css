@@ -20,6 +20,15 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 }
 
+.gray {
+  background: #585454
+}
+.gray:hover,
+.gray:active {
+  background: #8a8989;
+  border-color: #041e10;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+}
 
 .button {
   width: 100%;
