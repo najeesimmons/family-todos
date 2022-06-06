@@ -8,14 +8,16 @@ const TodoInput = (props) => {
   const [isValid, setisValid] = useState(true);
 
   const checkIfValid = () => {
-    if (todoInputField.current.value.trim() === 0) {
-      setisValid(false)
-    } else {
+    if (todoInputField.current.value.trim().length > 0) {
       setisValid(true)
+      console.log(isValid)
+    } else {
+      setisValid(false)
     }
   }
+  
   const handleFormSubmit = (event) => {
-    const enteredTodo = todoInputField.current.value;
+    const enteredTodo = todoInputField.current.value
     event.preventDefault();
     if (enteredTodo.trim().length === 0) {
       setisValid(false);
