@@ -18,7 +18,7 @@ const TodoItem = (props) => {
 
 
   return (
-    <div>
+    <>
       {confirming && (
         <ConfirmModal
           onDeleteTodos={props.onDeleteTodos}
@@ -46,7 +46,7 @@ const TodoItem = (props) => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
