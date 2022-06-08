@@ -1,44 +1,75 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Button from "../../UI/Button/Button";
 import styles from "./TodoInput.module.css";
 
+const INITIAL_STATE = {
+  error: false,
+  value: "",
+  errorMessage: "",
+};
+
 const TodoInput = (props) => {
-  const todoInputField = useRef();
 
-  const [isValid, setisValid] = useState(true);
 
-  const checkIfValid = () => {
-    if (todoInputField.current.value.trim().length > 0) {
-      setisValid(true);
-      // } else {
-      //   setisValid(false)
-      // }
-      // if the above else condition is added in, then invaid class for the input
-      // field will be activated even when you backspace until field has no content
+  const [inputField, setInputField] = useState(INITIAL_STATE);
+
+  const handleChange = (event) => {
+    setInputField((prevState) => ({
+      ...prevState,
+      value: event.target.value,
+    }));
+    checkError(event.target.value);
+  };
+
+  const checkError = (value) => {
+    if (value.trim().length > 0) {
+      setInputField((prevState) => {
+        return {
+          ...prevState,
+          error: false,
+          errorMessage: "",
+        };
+      });
+    } else {
+      setInputField((prevState) => {
+        return {
+          ...prevState,
+          error: true,
+          errorMessage: "Task must be more than zero characters.",
+        };
+      });
     }
   };
 
   const handleFormSubmit = (event) => {
-    const enteredTodo = todoInputField.current.value;
+    const enteredTodo = inputField.value;
     event.preventDefault();
     if (enteredTodo.trim().length === 0) {
-      setisValid(false);
+      setInputField((prevState) => {
+        return {
+          ...prevState,
+          error: true,
+          errorMessage: "Task must be more than zero characters.",
+        };
+      });
       return;
     }
-    setisValid(true);
     props.onAddTodos(enteredTodo);
-    todoInputField.current.value = "";
+    setInputField(INITIAL_STATE);
   };
 
   return (
     <form onSubmit={handleFormSubmit}>
       <div
-        className={`${styles["form-control"]} ${!isValid && styles.invalid}`}
+        className={`${styles["form-control"]} ${
+          inputField.error && styles.invalid
+        }`}
       >
         <label>New Task</label>
-        <input id="todo" ref={todoInputField} onChange={checkIfValid}></input>
+        <input id="todo" value={inputField.value} onChange={handleChange} />
+        {inputField.error && <p>{inputField.errorMessage}</p>}
       </div>
-      <Button type="submit" green>
+      <Button type="submit" green >
         Add
       </Button>
     </form>

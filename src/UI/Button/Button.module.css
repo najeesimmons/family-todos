@@ -21,7 +21,7 @@
 }
 
 .gray {
-  background: #585454
+  background: #585454;
 }
 .gray:hover,
 .gray:active {
@@ -39,6 +39,12 @@
   /* background: green; */
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .button:focus {
